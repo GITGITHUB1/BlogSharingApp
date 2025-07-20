@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import image from './images/logo.jpeg'
+import image from './images/CraftConnex.png'
 import { Link } from 'react-router-dom'
 import LoginModal from './Modal/loginmodal'
 import SignupModal from './Modal/signupmodal'
@@ -10,9 +10,9 @@ const Navbar = () => {
   if(state){
     return (
       <>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
-    <img src={image} className="logo" style={{maxWidth:'5%', borderRadius:'51.2rem'}} alt="default"/>
-    <Link className="navbar-brand ml-2 display-5" to="/" style={{fontSize:'xx-large'}}>Wisdom_rise_</Link>
+    <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+    <img src={image} className="logo" style={{maxWidth:'5%', borderRadius:'10px'}} alt="default"/>
+    <Link className="navbar-brand ml-2 display-5" to="/" style={{fontSize:'xx-large'}}>CraftConnex</Link>
     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
     </button>
@@ -42,7 +42,7 @@ const Navbar = () => {
       <>
       <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
     <img src={image} className="logo" style={{maxWidth:'5%', borderRadius:'51.2rem'}} alt="default"/>
-    <Link className="navbar-brand ml-2 display-5" to="/" style={{fontSize:'xx-large'}}>Wisdom_rise_</Link>
+    <Link className="navbar-brand ml-2 display-5" to="/" style={{fontSize:'xx-large'}}>CraftConnex</Link>
     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
     </button>

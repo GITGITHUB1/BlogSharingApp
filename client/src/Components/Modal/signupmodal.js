@@ -4,7 +4,7 @@ const SignupModal = () => {
     //Now put all the variables in an object state, so that if the user dynamically changes the data it should effect the state variable,the below key names are same as names of the input fields.
 
     //Setting a State variable which can differentiate the rendering of the alert and the SignUp Page
-    const [user, setUser] = useState({ name: "", email: "", password: "", confirmpassword: "", country: "", city: "" });
+    const [user, setUser] = useState({ name: "", email: "", password: "", confirmpassword: "", country: "", city: "", address: ""});
 
     //AlertBox Reference
     let alertBox = document.getElementById('alertBox');
@@ -17,14 +17,14 @@ const SignupModal = () => {
 
     const sendData = async (e) => {
         e.preventDefault();
-        const { name, email, password, confirmpassword, country, city } = user;
+        const { name, email, password, confirmpassword, country, city, address} = user;
         const response = await fetch('/register', {
             method: 'POST',
             headers: {
                 'Content-Type': 'Application/json'
             },
             body: JSON.stringify({
-                name, email, password, confirmpassword, country, city
+                name, email, password, confirmpassword, country, city, address
             })
         })
         const data = await response.json();
@@ -40,7 +40,7 @@ const SignupModal = () => {
             setTimeout(() => {
                 alertBox.innerHTML = '';
             }, 3000);
-                
+
         }
         else if (response.status == 400) {
             alertBox.innerHTML = `<div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -77,7 +77,7 @@ const SignupModal = () => {
             setTimeout(() => {
                 alertBox.innerHTML = '';
             }, 3000);
-            setUser({ name: "", email: "", password: "", confirmpassword: "", country: "", city: "" });
+            setUser({ name: "", email: "", password: "", confirmpassword: "", country: "", city: "", address: "" });
         }
 
     }
@@ -118,13 +118,18 @@ const SignupModal = () => {
                                 <div className="form-row">
                                     <div className="form-group col-md-6">
                                         <label htmlFor="inputCountry">Country</label>
-                                        <input type="text" className="form-control" value={user.country} name="country" onChange={handleOnChange} id="inputCountry" />
+                                        <input type="text" className="form-control" value={user.country} name="country" onChange={handleOnChange} id="inputCountry"  placeholder="Country"/>
 
                                     </div>
                                     <div className="form-group col-md-6">
                                         <label htmlFor="inputCity">City</label>
-                                        <input type="text" className="form-control" value={user.city} name="city" onChange={handleOnChange} id="inputCity" />
+                                        <input type="text" className="form-control" value={user.city} name="city" onChange={handleOnChange} id="inputCity"  placeholder="City"/>
                                     </div>
+                                </div>
+                                <div className="form-row">
+                                    <label htmlFor="inputAddress">Address</label>
+                                    <input type="text" className="form-control" value={user.address} name="address" onChange={handleOnChange} id="inputAddress" placeholder="Address" />
+
                                 </div>
                             </form>
                         </div>
